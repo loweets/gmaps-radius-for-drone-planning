@@ -139,6 +139,9 @@ l=h.substring(0,l.length)!==l?g(""):new g(h.substring(l.length)),l._parentURI=th
       }
     });
     searchBox = new google.maps.places.SearchBox(searchInput);
+    map.addListener("bounds_changed", () => {
+      searchBox.setBounds(map.getBounds());
+    });
     google.maps.event.addListener(searchBox, 'places_changed', function() {
 
       /* When a place is selected, center on it */
